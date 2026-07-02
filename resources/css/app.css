@@ -3927,3 +3927,441 @@ button.btn.site-lang-btn::after {
         display: none;
     }
 }
+
+/* ================================
+   Admin Topbar Mobile Fix
+================================ */
+
+@media (max-width: 991px) {
+    .admin-topbar {
+        position: sticky;
+        top: 0;
+        z-index: 900;
+        width: 100%;
+        min-height: 64px;
+        padding: 10px 14px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 10px !important;
+        flex-wrap: nowrap !important;
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(14px);
+        border-radius: 0 !important;
+        border-bottom: 1px solid rgba(15, 23, 42, 0.07);
+        box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    }
+
+    .admin-topbar-left {
+        display: flex !important;
+        align-items: center !important;
+        gap: 10px !important;
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+    }
+
+    .admin-mobile-menu-btn {
+        width: 42px !important;
+        height: 42px !important;
+        min-width: 42px !important;
+        border: 0 !important;
+        border-radius: 14px !important;
+        background: var(--ft-dark-green) !important;
+        color: #fff !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 22px !important;
+        box-shadow: none !important;
+        flex: 0 0 auto !important;
+        margin: 0 !important;
+    }
+
+    .admin-topbar-title {
+        min-width: 0 !important;
+        flex: 1 1 auto !important;
+        line-height: 1.2;
+    }
+
+    .admin-page-eyebrow {
+        display: block;
+        font-size: 9px !important;
+        letter-spacing: 1px;
+        font-weight: 900;
+        line-height: 1;
+        margin-bottom: 4px;
+        white-space: nowrap;
+    }
+
+    .admin-topbar-title strong {
+        display: block;
+        max-width: 120px !important;
+        font-size: 13px !important;
+        font-weight: 900;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1.1;
+    }
+
+    .admin-topbar-actions {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        gap: 6px !important;
+        flex: 0 0 auto !important;
+        min-width: auto !important;
+        margin: 0 !important;
+    }
+
+    .admin-topbar-btn,
+    .admin-user-btn {
+        width: 40px !important;
+        height: 40px !important;
+        min-width: 40px !important;
+        padding: 0 !important;
+        border-radius: 14px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+    }
+
+    .admin-topbar-btn span,
+    .admin-user-info,
+    .view-site-btn span {
+        display: none !important;
+    }
+
+    .admin-topbar-btn i {
+        font-size: 16px !important;
+        margin: 0 !important;
+    }
+
+    .admin-topbar-btn.dropdown-toggle::after,
+    .admin-user-btn.dropdown-toggle::after {
+        display: none !important;
+    }
+
+    .admin-user-avatar {
+        width: 32px !important;
+        height: 32px !important;
+        min-width: 32px !important;
+        margin: 0 !important;
+        font-size: 13px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .admin-dropdown {
+        position: absolute !important;
+        border-radius: 16px !important;
+        padding: 8px !important;
+        min-width: 180px !important;
+        box-shadow: 0 20px 45px rgba(15, 23, 42, 0.16) !important;
+        border: 1px solid rgba(15, 23, 42, 0.06) !important;
+    }
+}
+
+@media (max-width: 575px) {
+    .admin-topbar {
+        min-height: 58px;
+        padding: 8px 10px !important;
+    }
+
+    .admin-topbar-left {
+        gap: 8px !important;
+    }
+
+    .admin-mobile-menu-btn,
+    .admin-topbar-btn,
+    .admin-user-btn {
+        width: 36px !important;
+        height: 36px !important;
+        min-width: 36px !important;
+        border-radius: 12px !important;
+    }
+
+    .admin-mobile-menu-btn {
+        font-size: 20px !important;
+    }
+
+    .admin-topbar-title strong {
+        max-width: 96px !important;
+        font-size: 12px !important;
+    }
+
+    .admin-page-eyebrow {
+        font-size: 8px !important;
+    }
+
+    .admin-user-avatar {
+        width: 28px !important;
+        height: 28px !important;
+        min-width: 28px !important;
+        font-size: 12px !important;
+    }
+}
+/* =========================================
+   FINAL ADMIN TOPBAR MOBILE FIX
+   Put this at the very end of app.css
+========================================= */
+
+.admin-topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-width: 0;
+}
+
+.admin-mobile-menu-btn {
+    display: none;
+}
+
+@media (max-width: 991px) {
+    .admin-topbar {
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 1000 !important;
+
+        width: 100% !important;
+        min-height: 62px !important;
+
+        margin: 0 !important;
+        padding: 10px 12px !important;
+
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        flex-wrap: nowrap !important;
+        gap: 10px !important;
+
+        border-radius: 0 !important;
+        background: rgba(255, 255, 255, 0.96) !important;
+        border: 0 !important;
+        border-bottom: 1px solid rgba(15, 23, 42, 0.08) !important;
+        box-shadow: 0 8px 22px rgba(15, 23, 42, 0.06) !important;
+        backdrop-filter: blur(14px) !important;
+    }
+
+    .admin-topbar-left {
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 10px !important;
+    }
+
+    .admin-mobile-menu-btn {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        width: 42px !important;
+        height: 42px !important;
+        min-width: 42px !important;
+
+        padding: 0 !important;
+        margin: 0 !important;
+
+        border: 0 !important;
+        border-radius: 14px !important;
+        background: var(--ft-dark-green) !important;
+        color: #fff !important;
+        font-size: 23px !important;
+        line-height: 1 !important;
+        box-shadow: none !important;
+    }
+
+    .admin-topbar-title {
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+        display: block !important;
+    }
+
+    .admin-page-eyebrow {
+        display: block !important;
+        margin: 0 0 4px !important;
+        font-size: 8px !important;
+        line-height: 1 !important;
+        letter-spacing: 1px !important;
+        font-weight: 900 !important;
+        color: rgba(31, 41, 51, 0.48) !important;
+        white-space: nowrap !important;
+    }
+
+    .admin-topbar-title strong {
+        display: block !important;
+        max-width: 130px !important;
+        margin: 0 !important;
+        font-size: 13px !important;
+        line-height: 1.15 !important;
+        font-weight: 900 !important;
+        color: var(--ft-dark-green) !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+
+    .admin-topbar-actions {
+        width: auto !important;
+        flex: 0 0 auto !important;
+
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        flex-wrap: nowrap !important;
+        gap: 6px !important;
+
+        margin: 0 !important;
+    }
+
+    .admin-topbar-actions .dropdown {
+        flex: 0 0 auto !important;
+    }
+
+    .admin-topbar-btn,
+    .admin-user-btn {
+        flex: 0 0 auto !important;
+
+        width: 40px !important;
+        height: 40px !important;
+        min-width: 40px !important;
+        min-height: 40px !important;
+
+        padding: 0 !important;
+        margin: 0 !important;
+
+        border-radius: 14px !important;
+
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 0 !important;
+
+        box-shadow: none !important;
+    }
+
+    .view-site-btn {
+        grid-column: auto !important;
+        background: var(--ft-green) !important;
+        color: #fff !important;
+    }
+
+    .view-site-btn span,
+    .admin-topbar-btn span,
+    .admin-user-info {
+        display: none !important;
+    }
+
+    .admin-topbar-btn i {
+        margin: 0 !important;
+        font-size: 17px !important;
+    }
+
+    .admin-topbar-btn.dropdown-toggle::after,
+    .admin-user-btn.dropdown-toggle::after {
+        display: none !important;
+    }
+
+    .admin-user-avatar {
+        width: 30px !important;
+        height: 30px !important;
+        min-width: 30px !important;
+        margin: 0 !important;
+
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        font-size: 12px !important;
+        font-weight: 900 !important;
+    }
+}
+
+@media (max-width: 575px) {
+    .admin-topbar {
+        min-height: 58px !important;
+        padding: 8px 10px !important;
+        gap: 8px !important;
+    }
+
+    .admin-topbar-left {
+        gap: 8px !important;
+    }
+
+    .admin-mobile-menu-btn,
+    .admin-topbar-btn,
+    .admin-user-btn {
+        width: 36px !important;
+        height: 36px !important;
+        min-width: 36px !important;
+        min-height: 36px !important;
+        border-radius: 12px !important;
+    }
+
+    .admin-mobile-menu-btn {
+        font-size: 21px !important;
+    }
+
+    .admin-topbar-title strong {
+        max-width: 105px !important;
+        font-size: 12px !important;
+    }
+
+    .admin-page-eyebrow {
+        font-size: 7px !important;
+        letter-spacing: .9px !important;
+    }
+
+    .admin-user-avatar {
+        width: 28px !important;
+        height: 28px !important;
+        min-width: 28px !important;
+    }
+}
+/* Admin language button mobile fix */
+@media (max-width: 991px) {
+    .admin-lang-btn {
+        width: 46px !important;
+        min-width: 46px !important;
+        height: 40px !important;
+        border-radius: 14px !important;
+        background: rgba(244, 241, 234, 0.85) !important;
+        border: 1px solid rgba(47, 110, 59, 0.16) !important;
+        color: var(--ft-dark-green) !important;
+        font-weight: 900 !important;
+        font-size: 12px !important;
+    }
+
+    .admin-lang-btn span {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        color: var(--ft-dark-green) !important;
+        font-weight: 900 !important;
+        font-size: 12px !important;
+        line-height: 1 !important;
+    }
+
+    .admin-lang-btn::after {
+        display: none !important;
+    }
+}
+
+@media (max-width: 575px) {
+    .admin-lang-btn {
+        width: 40px !important;
+        min-width: 40px !important;
+        height: 36px !important;
+        font-size: 11px !important;
+    }
+
+    .admin-lang-btn span {
+        font-size: 11px !important;
+    }
+}

@@ -17,8 +17,7 @@
         </a>
 
         <div class="dropdown">
-            <button class="admin-topbar-btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                <i class="bi bi-translate"></i>
+            <button class="admin-topbar-btn admin-lang-btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
                 <span>{{ strtoupper(app()->getLocale()) }}</span>
             </button>
 
@@ -49,7 +48,9 @@
                     </a>
                 </li>
 
-                <li><hr class="dropdown-divider"></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
 
                 <li>
                     <form method="POST" action="{{ route('logout') }}">
