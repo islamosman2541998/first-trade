@@ -209,4 +209,5 @@ return [
 'view_all' => 'Alles bekijken',
 'new' => 'Nieuw',
 'quote_request' => 'Offerteaanvraag',
+'main_menu' => 'Hoofdmenu',
 ];

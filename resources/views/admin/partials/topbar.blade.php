@@ -1,7 +1,13 @@
 <header class="admin-topbar">
-    <div class="admin-topbar-title">
-        <span class="admin-page-eyebrow">{{ __('admin.admin_panel') }}</span>
-        <strong>@yield('page_title', __('admin.dashboard'))</strong>
+    <div class="admin-topbar-left">
+        <button type="button" class="admin-mobile-menu-btn" id="adminSidebarToggle">
+            <i class="bi bi-list"></i>
+        </button>
+
+        <div class="admin-topbar-title">
+            <span class="admin-page-eyebrow">{{ __('admin.admin_panel') }}</span>
+            <strong>@yield('page_title', __('admin.dashboard'))</strong>
+        </div>
     </div>
 
     <div class="admin-topbar-actions">
@@ -11,7 +17,7 @@
         </a>
 
         <div class="dropdown">
-            <button class="admin-topbar-btn dropdown-toggle" data-bs-toggle="dropdown">
+            <button class="admin-topbar-btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
                 <i class="bi bi-translate"></i>
                 <span>{{ strtoupper(app()->getLocale()) }}</span>
             </button>
@@ -24,7 +30,7 @@
         </div>
 
         <div class="dropdown">
-            <button class="admin-user-btn dropdown-toggle" data-bs-toggle="dropdown">
+            <button class="admin-user-btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
                 <span class="admin-user-avatar">
                     {{ strtoupper(mb_substr(auth()->user()->name, 0, 1)) }}
                 </span>

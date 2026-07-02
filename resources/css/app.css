@@ -3686,3 +3686,244 @@ button.btn.site-lang-btn::after {
         bottom: 16px;
     }
 }
+
+.admin-sidebar-overlay,
+.admin-sidebar-mobile-head,
+.admin-mobile-menu-btn {
+    display: none;
+}
+
+.admin-topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-width: 0;
+}
+
+.admin-topbar-title {
+    min-width: 0;
+}
+
+.admin-topbar-title strong {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media (max-width: 991px) {
+    body.admin-sidebar-opened {
+        overflow: hidden;
+    }
+
+    .admin-sidebar {
+        position: fixed !important;
+        top: 0;
+        bottom: 0;
+        inset-inline-start: 0;
+        width: 310px;
+        max-width: 86vw;
+        height: 100vh;
+        z-index: 1050;
+        transform: translateX(-105%);
+        transition: transform .28s ease;
+        box-shadow: 0 24px 70px rgba(15, 23, 42, 0.24);
+    }
+
+    [dir="rtl"] .admin-sidebar {
+        transform: translateX(105%);
+    }
+
+    .admin-sidebar.is-open {
+        transform: translateX(0);
+    }
+
+    .admin-sidebar-inner {
+        height: 100%;
+        overflow-y: auto;
+        padding-bottom: 24px;
+    }
+
+    .admin-sidebar-overlay {
+        position: fixed;
+        inset: 0;
+        display: block;
+        background: rgba(15, 23, 42, 0.46);
+        backdrop-filter: blur(4px);
+        z-index: 1040;
+        opacity: 0;
+        visibility: hidden;
+        transition: all .25s ease;
+    }
+
+    .admin-sidebar-overlay.is-active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .admin-sidebar-mobile-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 18px 0;
+        color: rgba(255, 255, 255, 0.72);
+        font-weight: 900;
+        font-size: 12px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    .admin-sidebar-close {
+        width: 38px;
+        height: 38px;
+        border: 0;
+        border-radius: 13px;
+        background: rgba(255, 255, 255, 0.12);
+        color: #fff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .admin-mobile-menu-btn {
+        width: 44px;
+        height: 44px;
+        border: 0;
+        border-radius: 16px;
+        background: var(--ft-dark-green);
+        color: #fff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        flex: 0 0 auto;
+        box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
+    }
+
+    .admin-topbar {
+        position: sticky;
+        top: 0;
+        z-index: 900;
+        min-height: 72px;
+        padding: 12px 14px;
+        gap: 12px;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+    }
+
+    .admin-topbar-left {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .admin-topbar-title strong {
+        max-width: 34vw;
+        font-size: 15px;
+    }
+
+    .admin-page-eyebrow {
+        font-size: 10px;
+    }
+
+    .admin-topbar-actions {
+        gap: 8px;
+        flex: 0 0 auto;
+    }
+
+    .admin-topbar-btn {
+        min-width: 44px;
+        height: 44px;
+        padding: 0 12px;
+        border-radius: 15px;
+    }
+
+    .admin-topbar-btn.view-site-btn span {
+        display: none;
+    }
+
+    .admin-user-btn {
+        min-width: 44px;
+        height: 44px;
+        padding: 0;
+        border-radius: 15px;
+        gap: 0;
+    }
+
+    .admin-user-info {
+        display: none;
+    }
+
+    .admin-user-avatar {
+        margin: 0;
+    }
+
+    .admin-dropdown {
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: 0 20px 45px rgba(15, 23, 42, 0.14);
+    }
+
+    .admin-brand-box {
+        margin-top: 10px;
+    }
+
+    .admin-menu-label {
+        margin-top: 18px;
+    }
+
+    .admin-sidebar-nav {
+        padding-bottom: 24px;
+    }
+
+    .admin-sidebar-footer {
+        position: relative;
+        bottom: auto;
+        margin-top: 16px;
+    }
+
+    .admin-main,
+    .admin-content,
+    .admin-page-content {
+        margin-inline-start: 0 !important;
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 575px) {
+    .admin-sidebar {
+        width: 288px;
+        max-width: 88vw;
+    }
+
+    .admin-topbar {
+        min-height: 66px;
+        padding: 10px 12px;
+    }
+
+    .admin-mobile-menu-btn,
+    .admin-topbar-btn,
+    .admin-user-btn {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        border-radius: 14px;
+    }
+
+    .admin-mobile-menu-btn {
+        font-size: 22px;
+    }
+
+    .admin-topbar-title strong {
+        max-width: 30vw;
+        font-size: 14px;
+    }
+
+    .admin-topbar-btn.dropdown-toggle span {
+        font-size: 12px;
+    }
+
+    .admin-topbar-btn.dropdown-toggle i {
+        display: none;
+    }
+}

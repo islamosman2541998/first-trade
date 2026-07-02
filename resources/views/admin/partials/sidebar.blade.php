@@ -1,5 +1,13 @@
-<aside class="admin-sidebar">
+<aside class="admin-sidebar" id="adminSidebar">
     <div class="admin-sidebar-inner">
+        <div class="admin-sidebar-mobile-head">
+            <span>{{ __('admin.main_menu') }}</span>
+
+            <button type="button" class="admin-sidebar-close" id="adminSidebarClose">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+
         <div class="admin-brand-box">
             @php
                 $adminLogo = setting('admin_logo');
@@ -9,9 +17,10 @@
 
             <a href="{{ route('admin.dashboard') }}" class="admin-brand-link">
                 @if ($logo)
-                    <img src="{{ asset($logo) }}"
-                         alt="{{ setting('site_name', 'First Trade') }}"
-                         style="max-width: {{ setting('admin_logo_width', '120') }}px;">
+                    <img
+                        src="{{ asset($logo) }}"
+                        alt="{{ setting('site_name', 'First Trade') }}"
+                        style="max-width: {{ setting('admin_logo_width', '120') }}px;">
                 @else
                     <span>{{ setting('site_name', 'First Trade') }}</span>
                 @endif
@@ -20,7 +29,7 @@
             <small>{{ __('admin.admin_panel') }}</small>
         </div>
 
-        <div class="admin-menu-label">Main Menu</div>
+        <div class="admin-menu-label">{{ __('admin.main_menu') }}</div>
 
         <nav class="admin-sidebar-nav">
             <a href="{{ route('admin.dashboard') }}" class="{{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
@@ -49,19 +58,14 @@
             </a>
 
             <a href="{{ route('admin.contact-messages.index') }}" class="{{ request()->routeIs('admin.contact-messages.*') ? 'active' : '' }}">
-    <span class="admin-nav-icon"><i class="bi bi-envelope"></i></span>
-    <span>{{ __('admin.contact_messages') }}</span>
-</a>
+                <span class="admin-nav-icon"><i class="bi bi-envelope"></i></span>
+                <span>{{ __('admin.contact_messages') }}</span>
+            </a>
 
             <a href="{{ route('admin.quote-requests.index') }}" class="{{ request()->routeIs('admin.quote-requests.*') ? 'active' : '' }}">
-    <span class="admin-nav-icon"><i class="bi bi-file-earmark-text"></i></span>
-    <span>{{ __('admin.quote_requests') }}</span>
-</a>
-
-            {{-- <a href="#" class="{{ request()->routeIs('admin.pages.*') ? 'active' : '' }}">
-                <span class="admin-nav-icon"><i class="bi bi-file-text"></i></span>
-                <span>{{ __('admin.pages') }}</span>
-            </a> --}}
+                <span class="admin-nav-icon"><i class="bi bi-file-earmark-text"></i></span>
+                <span>{{ __('admin.quote_requests') }}</span>
+            </a>
 
             <a href="{{ route('admin.settings.index') }}" class="{{ request()->routeIs('admin.settings.*') ? 'active' : '' }}">
                 <span class="admin-nav-icon"><i class="bi bi-gear"></i></span>
@@ -77,3 +81,5 @@
         </div>
     </div>
 </aside>
+
+<div class="admin-sidebar-overlay" id="adminSidebarOverlay"></div>

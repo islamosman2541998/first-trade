@@ -97,7 +97,6 @@
 
 @livewireScripts
 
-@stack('scripts')
 
 <script>
     document.addEventListener('livewire:init', () => {
@@ -134,5 +133,57 @@
         toastr.error(@json(session('error')));
     @endif
 </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const sidebar = document.getElementById('adminSidebar');
+        const overlay = document.getElementById('adminSidebarOverlay');
+        const toggle = document.getElementById('adminSidebarToggle');
+        const close = document.getElementById('adminSidebarClose');
+
+        function openSidebar() {
+            if (!sidebar || !overlay) return;
+
+            sidebar.classList.add('is-open');
+            overlay.classList.add('is-active');
+            document.body.classList.add('admin-sidebar-opened');
+        }
+
+        function closeSidebar() {
+            if (!sidebar || !overlay) return;
+
+            sidebar.classList.remove('is-open');
+            overlay.classList.remove('is-active');
+            document.body.classList.remove('admin-sidebar-opened');
+        }
+
+        if (toggle) {
+            toggle.addEventListener('click', openSidebar);
+        }
+
+        if (close) {
+            close.addEventListener('click', closeSidebar);
+        }
+
+        if (overlay) {
+            overlay.addEventListener('click', closeSidebar);
+        }
+
+        document.querySelectorAll('.admin-sidebar-nav a').forEach(function (link) {
+            link.addEventListener('click', function () {
+                if (window.innerWidth <= 991) {
+                    closeSidebar();
+                }
+            });
+        });
+
+        window.addEventListener('resize', function () {
+            if (window.innerWidth > 991) {
+                closeSidebar();
+            }
+        });
+    });
+</script>
+
+@stack('scripts')
 </body>
 </html>

@@ -209,4 +209,5 @@ return [
 'view_all' => 'View All',
 'new' => 'New',
 'quote_request' => 'Quote Request',
+'main_menu' => 'Main Menu',
 ];
