@@ -12,17 +12,24 @@ return new class extends Migration
             $table->id();
 
             $table->string('name');
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->string('phone')->nullable();
+            $table->string('company')->nullable();
+
             $table->string('subject')->nullable();
             $table->text('message');
 
+            $table->string('preferred_contact_method')->nullable();
+
             $table->string('status')->default('new');
-            $table->text('notes')->nullable();
+            $table->text('admin_notes')->nullable();
+
+            $table->timestamp('read_at')->nullable();
 
             $table->timestamps();
 
             $table->index('status');
+            $table->index('preferred_contact_method');
             $table->index('created_at');
         });
     }

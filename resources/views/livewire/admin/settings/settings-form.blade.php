@@ -9,9 +9,10 @@
                 <a href="#seo" class="list-group-item list-group-item-action">{{ __('admin.seo') }}</a>
                 <a href="#tracking" class="list-group-item list-group-item-action">{{ __('admin.tracking_pixels') }}</a>
                 <a href="#appearance" class="list-group-item list-group-item-action">{{ __('admin.site_colors') }}</a>
-                <a href="#dashboard-colors"
-                    class="list-group-item list-group-item-action">{{ __('admin.dashboard_colors') }}</a>
+                <a href="#dashboard-colors" class="list-group-item list-group-item-action">{{ __('admin.dashboard_colors') }}</a>
                 <a href="#home" class="list-group-item list-group-item-action">{{ __('admin.home_content') }}</a>
+                <a href="#social" class="list-group-item list-group-item-action">{{ __('admin.social_media') }}</a>
+                <a href="#footer" class="list-group-item list-group-item-action">{{ __('admin.footer') }}</a>
             </div>
         </div>
 
@@ -87,7 +88,7 @@
                         @enderror
 
                         <div wire:loading wire:target="siteLogo" class="small text-muted mt-1">
-                            Uploading...
+                            {{ __('admin.uploading') }}
                         </div>
 
                         @if ($siteLogo)
@@ -105,14 +106,13 @@
                         @enderror
 
                         <div wire:loading wire:target="adminLogo" class="small text-muted mt-1">
-                            Uploading...
+                            {{ __('admin.uploading') }}
                         </div>
 
                         @if ($adminLogo)
                             <img src="{{ $adminLogo->temporaryUrl() }}" class="mt-2" style="max-height: 70px;">
                         @elseif(!empty($settings['admin_logo']))
-                            <img src="{{ asset($settings['admin_logo']) }}" class="mt-2"
-                                style="max-height: 70px;">
+                            <img src="{{ asset($settings['admin_logo']) }}" class="mt-2" style="max-height: 70px;">
                         @endif
                     </div>
 
@@ -124,19 +124,18 @@
                         @enderror
 
                         <div wire:loading wire:target="favicon" class="small text-muted mt-1">
-                            Uploading...
+                            {{ __('admin.uploading') }}
                         </div>
 
                         @if ($favicon)
                             <img src="{{ $favicon->temporaryUrl() }}" class="mt-2" style="max-height: 40px;">
                         @elseif(!empty($settings['site_favicon']))
-                            <img src="{{ asset($settings['site_favicon']) }}" class="mt-2"
-                                style="max-height: 40px;">
+                            <img src="{{ asset($settings['site_favicon']) }}" class="mt-2" style="max-height: 40px;">
                         @endif
                     </div>
 
                     <div class="col-md-4">
-                        <label class="form-label">Admin Logo Width</label>
+                        <label class="form-label">{{ __('admin.admin_logo_width') }}</label>
                         <input type="number" wire:model.defer="settings.admin_logo_width" class="form-control">
                     </div>
                 </div>
@@ -154,35 +153,32 @@
                         @enderror
 
                         <div wire:loading wire:target="loginBackground" class="small text-muted mt-1">
-                            Uploading...
+                            {{ __('admin.uploading') }}
                         </div>
 
                         @if ($loginBackground)
-                            <img src="{{ $loginBackground->temporaryUrl() }}" class="mt-2 rounded"
-                                style="max-height: 90px;">
+                            <img src="{{ $loginBackground->temporaryUrl() }}" class="mt-2 rounded" style="max-height: 90px;">
                         @elseif(!empty($settings['login_background_image']))
-                            <img src="{{ asset($settings['login_background_image']) }}" class="mt-2 rounded"
-                                style="max-height: 90px;">
+                            <img src="{{ asset($settings['login_background_image']) }}" class="mt-2 rounded" style="max-height: 90px;">
                         @endif
                     </div>
+
                     @foreach ([
-        'login_background_color' => 'Background Color',
-        'login_card_color' => 'Card Color',
-        'login_card_text_color' => 'Text Color',
-        'login_button_color' => 'Button Color',
-        'login_button_text_color' => 'Button Text Color',
-    ] as $key => $label)
+                        'login_background_color' => __('admin.background_color'),
+                        'login_card_color' => __('admin.card_color'),
+                        'login_card_text_color' => __('admin.text_color'),
+                        'login_button_color' => __('admin.button_color'),
+                        'login_button_text_color' => __('admin.button_text_color'),
+                    ] as $key => $label)
                         <div class="col-md-3">
                             <label class="form-label">{{ $label }}</label>
-                            <input type="color" wire:model.defer="settings.{{ $key }}"
-                                class="form-control form-control-color">
+                            <input type="color" wire:model.defer="settings.{{ $key }}" class="form-control form-control-color">
                         </div>
                     @endforeach
 
                     <div class="col-md-3">
-                        <label class="form-label">Card Opacity</label>
-                        <input type="number" step="0.01" min="0.1" max="1"
-                            wire:model.defer="settings.login_card_opacity" class="form-control">
+                        <label class="form-label">{{ __('admin.card_opacity') }}</label>
+                        <input type="number" step="0.01" min="0.1" max="1" wire:model.defer="settings.login_card_opacity" class="form-control">
                     </div>
                 </div>
             </div>
@@ -198,8 +194,7 @@
 
                         <div class="col-md-6">
                             <label class="form-label">{{ __('admin.meta_title') }}</label>
-                            <input type="text" wire:model.defer="settings.meta_title_{{ $locale }}"
-                                class="form-control">
+                            <input type="text" wire:model.defer="settings.meta_title_{{ $locale }}" class="form-control">
                         </div>
 
                         <div class="col-md-6">
@@ -241,17 +236,16 @@
 
                 <div class="card-body row g-3">
                     @foreach ([
-        'site_primary_color' => 'Primary',
-        'site_secondary_color' => 'Secondary',
-        'site_cream_color' => 'Cream',
-        'site_yellow_color' => 'Yellow',
-        'site_peach_color' => 'Peach',
-        'site_sky_color' => 'Sky',
-    ] as $key => $label)
+                        'site_primary_color' => __('admin.primary'),
+                        'site_secondary_color' => __('admin.secondary'),
+                        'site_cream_color' => __('admin.cream'),
+                        'site_yellow_color' => __('admin.yellow'),
+                        'site_peach_color' => __('admin.peach'),
+                        'site_sky_color' => __('admin.sky'),
+                    ] as $key => $label)
                         <div class="col-md-3">
                             <label class="form-label">{{ $label }}</label>
-                            <input type="color" wire:model.defer="settings.{{ $key }}"
-                                class="form-control form-control-color">
+                            <input type="color" wire:model.defer="settings.{{ $key }}" class="form-control form-control-color">
                         </div>
                     @endforeach
                 </div>
@@ -262,15 +256,14 @@
 
                 <div class="card-body row g-3">
                     @foreach ([
-        'admin_sidebar_color' => 'Sidebar',
-        'admin_topbar_color' => 'Topbar',
-        'admin_primary_color' => 'Primary',
-        'admin_background_color' => 'Background',
-    ] as $key => $label)
+                        'admin_sidebar_color' => __('admin.sidebar'),
+                        'admin_topbar_color' => __('admin.topbar'),
+                        'admin_primary_color' => __('admin.primary'),
+                        'admin_background_color' => __('admin.background'),
+                    ] as $key => $label)
                         <div class="col-md-3">
                             <label class="form-label">{{ $label }}</label>
-                            <input type="color" wire:model.defer="settings.{{ $key }}"
-                                class="form-control form-control-color">
+                            <input type="color" wire:model.defer="settings.{{ $key }}" class="form-control form-control-color">
                         </div>
                     @endforeach
                 </div>
@@ -286,16 +279,84 @@
                         </div>
 
                         <div class="col-md-6">
-                            <label class="form-label">Hero Title</label>
-                            <input type="text" wire:model.defer="settings.home_hero_title_{{ $locale }}"
-                                class="form-control">
+                            <label class="form-label">{{ __('admin.hero_title') }}</label>
+                            <input type="text" wire:model.defer="settings.home_hero_title_{{ $locale }}" class="form-control">
                         </div>
 
                         <div class="col-md-6">
-                            <label class="form-label">Hero Subtitle</label>
+                            <label class="form-label">{{ __('admin.hero_subtitle') }}</label>
                             <textarea wire:model.defer="settings.home_hero_subtitle_{{ $locale }}" class="form-control" rows="2"></textarea>
                         </div>
                     @endforeach
+                </div>
+            </div>
+
+            <div id="social" class="card admin-card mb-4">
+                <div class="card-header bg-white"><strong>{{ __('admin.social_media') }}</strong></div>
+
+                <div class="card-body row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label">{{ __('admin.facebook_url') }}</label>
+                        <input type="text" wire:model.defer="settings.facebook_url" class="form-control" placeholder="https://facebook.com/your-page">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">{{ __('admin.instagram_url') }}</label>
+                        <input type="text" wire:model.defer="settings.instagram_url" class="form-control" placeholder="https://instagram.com/your-page">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">{{ __('admin.linkedin_url') }}</label>
+                        <input type="text" wire:model.defer="settings.linkedin_url" class="form-control" placeholder="https://linkedin.com/company/your-company">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">{{ __('admin.whatsapp_url') }}</label>
+                        <input type="text" wire:model.defer="settings.whatsapp_url" class="form-control" placeholder="https://wa.me/201000000000">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">{{ __('admin.youtube_url') }}</label>
+                        <input type="text" wire:model.defer="settings.youtube_url" class="form-control" placeholder="https://youtube.com/@your-channel">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">{{ __('admin.tiktok_url') }}</label>
+                        <input type="text" wire:model.defer="settings.tiktok_url" class="form-control" placeholder="https://tiktok.com/@your-account">
+                    </div>
+                </div>
+            </div>
+
+            <div id="footer" class="card admin-card mb-4">
+                <div class="card-header bg-white"><strong>{{ __('admin.footer') }}</strong></div>
+
+                <div class="card-body row g-3">
+                    <div class="col-12">
+                        <h6>English</h6>
+                    </div>
+
+                    <div class="col-12">
+                        <label class="form-label">{{ __('admin.footer_about') }} - English</label>
+                        <textarea wire:model.defer="settings.footer_about_en" class="form-control" rows="4"></textarea>
+                    </div>
+
+                    <div class="col-12">
+                        <h6>العربية</h6>
+                    </div>
+
+                    <div class="col-12">
+                        <label class="form-label">{{ __('admin.footer_about') }} - العربية</label>
+                        <textarea wire:model.defer="settings.footer_about_ar" class="form-control" rows="4" dir="rtl"></textarea>
+                    </div>
+
+                    <div class="col-12">
+                        <h6>Dutch</h6>
+                    </div>
+
+                    <div class="col-12">
+                        <label class="form-label">{{ __('admin.footer_about') }} - Dutch</label>
+                        <textarea wire:model.defer="settings.footer_about_nl" class="form-control" rows="4"></textarea>
+                    </div>
                 </div>
             </div>
 

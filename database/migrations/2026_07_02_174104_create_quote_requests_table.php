@@ -1,7 +1,7 @@
 <?php
 
+use App\Models\Category;
 use App\Models\Product;
-use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,32 +13,30 @@ return new class extends Migration
         Schema::create('quote_requests', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignIdFor(Product::class)
-                ->nullable()
-                ->constrained()
-                ->nullOnDelete();
-
-            $table->foreignIdFor(User::class, 'assigned_to')
-                ->nullable()
-                ->constrained('users')
-                ->nullOnDelete();
+            $table->foreignIdFor(Product::class)->nullable()->constrained()->nullOnDelete();
+            $table->foreignIdFor(Category::class)->nullable()->constrained()->nullOnDelete();
 
             $table->string('name');
+            $table->string('email')->nullable();
+            $table->string('phone');
             $table->string('company')->nullable();
             $table->string('country')->nullable();
-            $table->string('email');
-            $table->string('phone');
 
+            $table->string('product_name')->nullable();
             $table->string('quantity')->nullable();
+
             $table->text('message')->nullable();
+            $table->string('attachment')->nullable();
 
             $table->string('status')->default('new');
-            $table->text('notes')->nullable();
+            $table->text('admin_notes')->nullable();
+
+            $table->timestamp('read_at')->nullable();
 
             $table->timestamps();
 
             $table->index('product_id');
-            $table->index('assigned_to');
+            $table->index('category_id');
             $table->index('status');
             $table->index('created_at');
         });

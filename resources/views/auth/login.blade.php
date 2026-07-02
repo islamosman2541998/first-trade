@@ -49,16 +49,20 @@
             object-fit: contain;
         }
 
-        .auth-submit {
-            background: {{ setting('login_button_color', '#2F6E3B') }};
-            color: {{ setting('login_button_text_color', '#FFFFFF') }};
-            border: 0;
-        }
+        .auth-submit,
+.auth-submit:focus,
+.auth-submit:active {
+    background: {{ setting('login_button_color', '#2F6E3B') }} !important;
+    color: {{ setting('login_button_text_color', '#FFFFFF') }} !important;
+    border: 0 !important;
+    box-shadow: none !important;
+}
 
-        .auth-submit:hover {
-            opacity: .92;
-            color: {{ setting('login_button_text_color', '#FFFFFF') }};
-        }
+.auth-submit:hover {
+    background: #24572E !important;
+    color: {{ setting('login_button_text_color', '#FFFFFF') }} !important;
+    border: 0 !important;
+}
     </style>
 </head>
 <body>

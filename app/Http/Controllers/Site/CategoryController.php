@@ -12,8 +12,8 @@ class CategoryController extends Controller
     public function index(): View
     {
         $categories = Category::query()
-            ->with('activeChildren')
-            ->parents()
+            ->with(['translations', 'activeChildren.translations'])
+            // ->parents()
             ->active()
             ->ordered()
             ->get();
@@ -23,21 +23,40 @@ class CategoryController extends Controller
 
     public function show(Category $category): View
     {
-        $category->load(['parent', 'activeChildren']);
+        abort_unless($category->is_active, 404);
+
+        $category->load([
+            'translations',
+            'parent.translations',
+            'activeChildren.translations',
+        ]);
 
         $categoryIds = collect([$category->id])
-            ->merge($category->children()->pluck('id'))
+            ->merge($category->children()->active()->pluck('id'))
             ->unique()
             ->values()
             ->toArray();
 
         $products = Product::query()
-            ->with(['category.parent'])
+            ->with(['translations', 'category.translations'])
             ->whereIn('category_id', $categoryIds)
             ->active()
             ->ordered()
             ->paginate(12);
 
-        return view('site.categories.show', compact('category', 'products'));
+        $otherCategories = Category::query()
+            ->with(['translations'])
+            ->parents()
+            ->active()
+            ->where('id', '!=', $category->id)
+            ->ordered()
+            ->take(4)
+            ->get();
+
+        return view('site.categories.show', compact(
+            'category',
+            'products',
+            'otherCategories'
+        ));
     }
 }

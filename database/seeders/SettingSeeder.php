@@ -78,6 +78,34 @@ class SettingSeeder extends Seeder
             ['home_hero_subtitle_en', 'Premium fruits and vegetables for import and export.', 'textarea', 'home'],
             ['home_hero_subtitle_ar', 'فاكهة وخضروات طازجة بجودة مميزة للاستيراد والتصدير.', 'textarea', 'home'],
             ['home_hero_subtitle_nl', 'Premium groenten en fruit voor import en export.', 'textarea', 'home'],
+
+            // Social Links
+            ['facebook_url', null, 'text', 'social'],
+            ['instagram_url', null, 'text', 'social'],
+            ['linkedin_url', null, 'text', 'social'],
+            ['whatsapp_url', null, 'text', 'social'],
+            ['youtube_url', null, 'text', 'social'],
+            ['tiktok_url', null, 'text', 'social'],
+
+            // Footer
+            [
+                'footer_about_en',
+                'First Trade supplies premium fresh fruits and vegetables prepared for import, export, and wholesale markets with reliable selection and professional handling.',
+                'textarea',
+                'footer',
+            ],
+            [
+                'footer_about_ar',
+                'فرست تريد توفر فاكهة وخضروات طازجة بجودة مناسبة لأسواق الاستيراد والتصدير والتوريد بالجملة من خلال اختيار موثوق وتجهيز احترافي.',
+                'textarea',
+                'footer',
+            ],
+            [
+                'footer_about_nl',
+                'First Trade levert premium verse groenten en fruit voor import, export en groothandel met betrouwbare selectie en professionele afhandeling.',
+                'textarea',
+                'footer',
+            ],
         ];
 
         foreach ($settings as [$key, $value, $type, $group]) {
