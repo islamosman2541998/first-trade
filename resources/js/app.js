@@ -42,3 +42,35 @@ AOS.init({
     duration: 700,
     once: true,
 });
+import {
+    Chart,
+    LineController,
+    BarController,
+    LineElement,
+    BarElement,
+    PointElement,
+    CategoryScale,
+    LinearScale,
+    ArcElement,
+    DoughnutController,
+    Tooltip,
+    Legend,
+    Filler,
+} from 'chart.js';
+
+Chart.register(
+    LineController,
+    BarController,
+    LineElement,
+    BarElement,
+    PointElement,
+    CategoryScale,
+    LinearScale,
+    ArcElement,
+    DoughnutController,
+    Tooltip,
+    Legend,
+    Filler
+);
+
+window.Chart = Chart;

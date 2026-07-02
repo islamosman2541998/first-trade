@@ -97,6 +97,8 @@
 
 @livewireScripts
 
+@stack('scripts')
+
 <script>
     document.addEventListener('livewire:init', () => {
         Livewire.on('toastr-success', (event) => {

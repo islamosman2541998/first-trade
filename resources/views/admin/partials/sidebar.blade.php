@@ -58,10 +58,10 @@
     <span>{{ __('admin.quote_requests') }}</span>
 </a>
 
-            <a href="#" class="{{ request()->routeIs('admin.pages.*') ? 'active' : '' }}">
+            {{-- <a href="#" class="{{ request()->routeIs('admin.pages.*') ? 'active' : '' }}">
                 <span class="admin-nav-icon"><i class="bi bi-file-text"></i></span>
                 <span>{{ __('admin.pages') }}</span>
-            </a>
+            </a> --}}
 
             <a href="{{ route('admin.settings.index') }}" class="{{ request()->routeIs('admin.settings.*') ? 'active' : '' }}">
                 <span class="admin-nav-icon"><i class="bi bi-gear"></i></span>
