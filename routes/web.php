@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\Admin\QuoteRequestController as AdminQuoteRequestController;
+use App\Http\Controllers\Admin\AboutPageController;
 use App\Http\Controllers\Admin\HomeSectionController;
 use App\Http\Controllers\Admin\ContactMessageController;
 
@@ -79,6 +80,7 @@ Route::middleware(['auth'])
 Route::get('/quote-requests/{quoteRequest}', [AdminQuoteRequestController::class, 'show'])->name('quote-requests.show');
 Route::get('/contact-messages', [ContactMessageController::class, 'index'])->name('contact-messages.index');
 Route::get('/contact-messages/{contactMessage}', [ContactMessageController::class, 'show'])->name('contact-messages.show');
+Route::get('/about-page', [AboutPageController::class, 'index'])->name('about-page.index');
     });
 
 Route::get('/dashboard', function () {

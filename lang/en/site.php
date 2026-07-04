@@ -175,4 +175,5 @@ return [
 'contact_side_text' => 'Reach out to us for product inquiries, export supply, wholesale orders, and cooperation opportunities.',
 'address' => 'Address',
 'follow_us' => 'Follow Us',
+'about' => 'About',
 ];

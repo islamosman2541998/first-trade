@@ -21,11 +21,11 @@
                         </a>
                     </li>
 
-                    {{-- <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('site.about') ? 'active' : '' }}" href="{{ route('site.about') }}">
                             {{ __('site.about') }}
                         </a>
-                    </li> --}}
+                    </li>
 
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('site.categories.*') ? 'active' : '' }}" href="{{ route('site.categories.index') }}">
